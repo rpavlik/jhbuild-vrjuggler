@@ -38,7 +38,7 @@
 <!-- Developer Platform -->
 
   <autotools id="gconf">
-    <branch/>
+    <branch tag="2.31.2" />
     <dependencies>
       <dep package="intltool"/>
       <dep package="ORBit2"/>
@@ -1306,7 +1306,7 @@
       <dep package="libnotify"/>
     </suggests>
   </autotools>
-  
+
   <autotools id="sound-juicer">
     <branch/>
     <dependencies>
@@ -1485,7 +1485,7 @@
   </autotools>
 
   <autotools id="glibmm">
-    <branch/>
+    <branch revision="glibmm-2-24" />
     <dependencies>
       <dep package="glib"/>
       <dep package="libsigc++2"/>
