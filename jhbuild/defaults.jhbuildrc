@@ -47,6 +47,7 @@ builddir_pattern = '%s'
 autogenargs = '--disable-static --disable-gtk-doc'
 makeargs = ''
 cflags = ''
+sconsargs = 'prefix=%(prefix)s'
 
 # a alternative install program to use; the included install-check
 # program won't update timestamps if the header hasn't changed
@@ -62,6 +63,7 @@ cvsroots = {}
 svnroots = {}
 branches = {}
 module_autogenargs = {}
+module_sconsargs = {}
 module_makeargs = {}
 module_extra_env = {}
 module_makecheck = {}
