@@ -19,8 +19,8 @@
   <repository type="cvs" name="refdbg.sf.net"
       cvsroot=":pserver:anonymous@refdbg.cvs.sourceforge.net:/cvsroot/refdbg"
       password=""/>
-  <repository type="svn" name="inkscape.sf.net"
-      href="https://inkscape.svn.sourceforge.net/svnroot/inkscape/"/>
+  <repository type="bzr" name="lp-inkscape"
+      href="lp:inkscape"/>
   <repository type="svn" name="osiris.chipx86.com"
       href="http://osiris.chipx86.com/svn/osiris-misc/"/>
   <repository type="svn" name="svn.debian.org"
@@ -943,7 +943,7 @@
   <autotools id="inkscape"
   	autogenargs="--disable-lcms"
   	autogen-template="%(srcdir)s/%(autogen-sh)s &amp;&amp; %(srcdir)s/configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s" >
-    <branch repo="inkscape.sf.net" module="inkscape/trunk" checkoutdir="inkscape"/>
+    <branch repo="lp-inkscape" revision="trunk" checkoutdir="inkscape"/>
     <dependencies>
       <dep package="gtkmm"/>
       <dep package="libxslt"/>
