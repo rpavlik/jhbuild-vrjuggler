@@ -33,6 +33,8 @@
     href="ftp://sources.redhat.com/pub/"/>
 <repository type="tarball" name="Hans_Boehm"
     href="http://www.hpl.hp.com/personal/Hans_Boehm/gc/"/>
+<repository type="tarball" name="littlecms.com"
+    href="http://www.littlecms.com/"/>
 
   <!-- explicit disabling of qt3 and qt4 can be removed once avahi
        correctly detects what is available. -->
@@ -396,7 +398,7 @@
     </branch>
   </autotools>
 
-  <tarball id="poppler" version="0.12.0">
+  <tarball id="poppler" version="0.12.0" autogenargs="--enable-xpdf-headers">
     <source href="http://poppler.freedesktop.org/poppler-0.12.0.tar.gz"
             hash="sha256:a95d4a61b1220f60bc40a921766f02d6d18e8276b70291723d6cf77a9c7369ae"
             md5sum="399b25d9d71ad22bc9a2a9281769c49c" size="1595424"/>
@@ -1092,12 +1094,24 @@ href="http://ftp.gnome.org/pub/GNOME/sources/vala/0.8/vala-0.8.1.tar.bz2"
   <autotools id="libffi">
     <branch repo="sources.redhat.com"
             module="libffi/libffi-3.0.9.tar.gz" version="3.0.9"
-            md5sum="1f300a7a7f975d4046f51c3022fa5ff1"/>
+            md5sum="1f300a7a7f975d4046f51c3022fa5ff1"/>s
   </autotools>
   <autotools id="boehmgc">
     <branch repo="Hans_Boehm"
     		version="7.1"
             module="gc_source/gc-7.1.tar.gz"/>
+  </autotools>
+  
+  <autotools id="littlecms">
+    <branch repo="sourceforge.net"
+    		version="1.19"
+            module="lcms/lcms-1.19.tar.gz"/>
+  </autotools>
+  <autotools id="libpng"
+  			autogen-sh="configure">
+    <branch repo="sourceforge.net"
+    		version="1.2.43"
+            module="libpng/libpng-1.2.43.tar.gz"/>
   </autotools>
 
 
