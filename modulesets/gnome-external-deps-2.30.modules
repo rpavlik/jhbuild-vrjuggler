@@ -38,7 +38,7 @@
 
   <!-- explicit disabling of qt3 and qt4 can be removed once avahi
        correctly detects what is available. -->
-  <tarball autogenargs="--disable-qt3 --disable-qt4 --disable-mono --disable-monodoc --disable-manpages --disable-python --enable-compat-howl --enable-compat-libdns_sd" id="avahi" version="0.6.22">
+  <tarball autogenargs="--disable-qt3 --disable-qt4 --disable-mono --disable-monodoc --disable-manpages --disable-python --enable-compat-howl --enable-compat-libdns_sd" id="avahi" version="0.6.25">
     <source href="http://avahi.org/download/avahi-0.6.25.tar.gz"
             hash="sha256:9220d974f5515b8ccfa3900cd72cedcac0fa4cc87ca3c64405f7c55346cbba59"
             md5sum="a83155a6e29e3988f07e5eea3287b21e" size="1103653"/>
@@ -49,7 +49,7 @@
     </dependencies>
   </tarball>
 
-  <autotools id="cairo">
+  <autotools id="cairo" autogenargs="--enable-xlib">
     <branch module="releases/cairo-1.8.6.tar.gz" version="1.8.6"
             repo="cairo.org"
             hash="sha256:93a347af0cecf258be8fb54265b16a0fb16317df4a32896141d2987c30773535"
@@ -77,10 +77,10 @@
   </autotools>
 
   <autotools id="clutter">
-    <branch module="clutter/1.2/clutter-1.2.4.tar.bz2" version="1.2.4"
+    <branch module="clutter/1.2/clutter-1.2.10.tar.bz2" version="1.2.10"
 	    repo="clutter-project.org"
-	    hash="sha256:14528674af19eca4f6638c6e1e0ac07e40d047a6a31bac2f8cbb6ee0349ccb65"
-	    md5sum="3800dcc825e25d58e7ef93de26cd9759" size="2398791"/>
+	    hash="sha256:26cdee7a528eb1346553d16ae8d8d87f35a8a46c0a86829eabd227067e84da5d"
+	    md5sum="ca8dbc4a65c55720779872c13eac86ba" size="2388873"/>
     <dependencies>
       <dep package="glib"/>
       <dep package="cairo"/>
@@ -381,10 +381,10 @@
 
   <autotools id="opal" autogenargs="--disable-vpb"
              check-target="false" supports-non-srcdir-builds="no">
-    <branch module="opal/3.6/opal-3.6.6.tar.bz2" repo="gnome.org"
-            version="3.6.6"
-            hash="sha256:60c9d75703bedfeca7140cb76b23fae7179ce1f86e7e8b0026b72d66acd75c82"
-            md5sum="43b363c860780e7f1a0361cfee8f9f4a" size="7062422"/>
+    <branch module="opal/3.6/opal-3.6.8.tar.bz2" repo="gnome.org"
+            version="3.6.8"
+            hash="sha256:8cbfabb33e5c5563fdafacf1adde536c78638d6d020fae496a52e19e2be6a90c"
+            md5sum="a5f4ddc12c5aa34dc9407fe1daaf0f45" size="6837993"/>
     <dependencies>
       <dep package="ptlib"/>
     </dependencies>
@@ -426,10 +426,10 @@
   </autotools>
 
   <autotools id="ptlib" check-target="false" supports-non-srcdir-builds="no">
-    <branch module="ptlib/2.6/ptlib-2.6.5.tar.bz2" repo="gnome.org"
+    <branch module="ptlib/2.6/ptlib-2.6.7.tar.bz2" repo="gnome.org"
             autogen-sh="configure"
-            version="2.6.5"
-            hash="sha256:78e290d3cf78d4dc15c7397b0edd138b4d29cf2ad0a7311bfc1c4dfb88f2a400"/>
+            version="2.6.7"
+            hash="sha256:7dd28225fedd21154d34899b21ee4b6d27c88eb1a9f9931c8e6ced28e8f3b97f"/>
   </autotools>
 
   <tarball id="shared-mime-info" supports-non-srcdir-builds="no" version="0.70">
@@ -1030,10 +1030,10 @@
     </suggests>
   </tarball>
 
-  <tarball id="gobject-introspection" version="0.6.7">
-    <source href="http://download.gnome.org/sources/gobject-introspection/0.6/gobject-introspection-0.6.7.tar.bz2"
-            hash="sha256:c97ca4e978b0583999775640e9e9f97b64a5880ad2a6adc3ce903207b616f24a"
-            md5sum="41205c14cbd86632806578448e29bd30" size="579956"/>
+  <tarball id="gobject-introspection" version="0.6.14">
+    <source href="http://download.gnome.org/sources/gobject-introspection/0.6/gobject-introspection-0.6.14.tar.bz2"
+            hash="sha256:c4713bcbcebb06861738a8f630ab05289666e631f42f7abbf2e836978db7eba6"
+            md5sum="7ea9be9a347b5c408fd3c3907803de9b" size="763182"/>
     <dependencies>
       <dep package="glib"/>
       <dep package="libffi"/>

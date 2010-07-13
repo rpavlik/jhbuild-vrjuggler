@@ -144,11 +144,9 @@ class cmd_cleanone(Command):
             logging.info(
                     _('clean command called while makeclean is set to False, skipped.'))
             return 0
-        config.build_targets = ['clean']
-        config.nonetwork = False
 
         build = jhbuild.frontends.get_buildscript(config, module_list)
-        return build.build()
+        return build.build(phases=['clean'])
 
 register_command(cmd_cleanone)
 
@@ -485,6 +483,11 @@ class cmd_list(Command):
     def run(self, config, options, args, help=None):
         config.set_from_cmdline_options(options)
         module_set = jhbuild.moduleset.load(config)
+        if options.startat and options.list_all_modules:
+            raise UsageError(_('Conflicting options specified '
+                               '(\'%s\' and \'%s\')') % \
+                               ('--start-at', '--all-modules'))
+
         if options.list_all_modules:
             module_list = module_set.modules.values()
         else:

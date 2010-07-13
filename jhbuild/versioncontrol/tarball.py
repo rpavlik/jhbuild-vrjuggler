@@ -206,10 +206,16 @@ class TarballBranch(Branch):
             # don't have the tarball, try downloading it and check again
             if has_command('wget'):
                 res = buildscript.execute(
-                        ['wget', '--continue', self.module, '-O', localfile])
+                        ['wget', '--continue', self.module, '-O', localfile],
+                        extra_env={
+                          'LD_LIBRARY_PATH': os.environ.get('UNMANGLED_LD_LIBRARY_PATH'),
+                          'PATH': os.environ.get('UNMANGLED_PATH')})
             elif has_command('curl'):
                 res = buildscript.execute(
-                        ['curl', '--continue-at', '-', '-L', self.module, '-o', localfile])
+                        ['curl', '--continue-at', '-', '-L', self.module, '-o', localfile],
+                        extra_env={
+                          'LD_LIBRARY_PATH': os.environ.get('UNMANGLED_LD_LIBRARY_PATH'),
+                          'PATH': os.environ.get('UNMANGLED_PATH')})
             else:
                 raise FatalError(_("unable to find wget or curl"))
 
@@ -217,7 +223,7 @@ class TarballBranch(Branch):
 
         # now to unpack it
         try:
-            unpack_archive(buildscript, localfile, self.checkoutroot)
+            unpack_archive(buildscript, localfile, self.checkoutroot, self.checkoutdir)
         except CommandError:
             raise FatalError(_('failed to unpack %s') % localfile)
 
