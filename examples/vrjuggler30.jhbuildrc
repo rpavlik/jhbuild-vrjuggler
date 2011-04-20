@@ -1,6 +1,6 @@
 # -*- mode: python -*-
 
-# edit this file to match your settings and copy it to ~/.jhbuildrc
+# copy this file to ~/.jhbuildrc and edit it to match your settings
 
 # if you have a VR Juggler svn account, uncomment this line
 # repos['vrjuggler.googlecode.com'] = 'https://vrjuggler.googlecode.com/svn/juggler/'
@@ -8,19 +8,23 @@
 # if you have a Flagpoll svn account, uncomment this line
 # repos['flagpoll.googlecode.com'] = 'https://flagpoll.googlecode.com/svn/'
 
-# what module set should be used.
+# what module set should be used. This is the default value
 # It can be any of the files in the modulesets directory, or even
 # the URL of a module set file on a web server.
-moduleset = 'vrjuggler/vrjuggler30'
+# This is the default value:
+#moduleset = 'vrjuggler/vrjuggler30'
 
 # A list of the modules to build.
-modules = ['vrjuggler']
+# This is the default value:
+#modules = ['vrjuggler']
 
 # what directory should the source be checked out to?
-checkoutroot = os.path.expanduser('~/checkout/vrjuggler')
+# This is the default value:
+#checkoutroot = os.path.expanduser('~/checkout/vrjuggler')
 
 # the prefix to configure/install modules to (must have write access)
-prefix = os.path.expanduser('~/opt/vrjuggler')
+# This is the default value:
+#prefix = os.path.expanduser('~/opt/vrjuggler')
 
 # extra arguments to pass to all autogen.sh scripts
 # it is also possible to set CFLAGS this way, 'CFLAGS="-g -O2"' for example
@@ -28,7 +32,7 @@ prefix = os.path.expanduser('~/opt/vrjuggler')
 
 # On SMP systems you may use something like this to improve compilation time:
 # be aware that not all modules compile correctly with make -j2
-#makeargs = '-j3'
+#makeargs = '-j2'
 
 # If you have your own recent-enough boost that you want to use instead of
 # a fresh build, set its path below.
