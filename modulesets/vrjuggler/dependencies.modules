@@ -1,0 +1,37 @@
+<?xml version="1.0"?><!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+	<repository type="svn" name="flagpoll.googlecode.com" href="http://flagpoll.googlecode.com/svn/" />
+	<repository type="tarball" name="cppdom.sf.net" href="http://downloads.sourceforge.net/project/xml-cppdom/CppDOM/" />
+	<repository type="tarball" name="boost.sf.net" href="http://iweb.dl.sourceforge.net/project/boost/" />
+
+	<scons id="cppdom"
+		sconsargs="prefix=%(prefix)s BoostBaseDir=$BOOST_PATH BoostIncludeDir=$BOOST_PATH/include var_type=optimized build_test=no">
+
+		<branch module="1.0.3/cppdom-1.0.3.tar.gz"
+			version="1.0.3"
+			repo="cppdom.sf.net" />
+
+		<dependencies>
+			<dep package="flagpoll"/>
+			<dep package="boost"/>
+		</dependencies>
+	</scons>
+
+	<distutils id="flagpoll">
+		<branch repo="flagpoll.googlecode.com" module="trunk" checkoutdir="flagpoll" />
+	</distutils>
+
+	<autotools id="boost"
+		autogen-sh="./bootstrap.sh"
+		autogen-template="%(srcdir)s/%(autogen-sh)s --prefix=%(prefix)s"
+		supports-non-srcdir-builds="false"
+		makeargs="|| ./bjam link=shared threading=multi variant=release"
+		makeinstallargs="|| ./bjam install link=shared threading=multi variant=release"
+		check-target="false">
+		<branch repo="boost.sf.net" module="boost/1.45.0/boost_1_45_0.tar.gz" version="1.45.0" />
+	</autotools>
+
+</moduleset>
