@@ -261,7 +261,6 @@ class Config:
 
         # Boost path disables boost build
         if config.has_key('boost_path'):
-            print("Loaded boost path")
             if config.has_key('skip'):
                 config['skip'].append('boost')
             else:
