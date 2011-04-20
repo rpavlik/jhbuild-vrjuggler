@@ -18,7 +18,6 @@ modules = ['vrjuggler']
 
 # what directory should the source be checked out to?
 checkoutroot = os.path.expanduser('~/checkout/vrjuggler')
-tarballdir = os.path.join(checkoutroot, 'pkgs')
 
 # the prefix to configure/install modules to (must have write access)
 prefix = os.path.expanduser('~/opt/vrjuggler')
