@@ -259,6 +259,14 @@ class Config:
         if config.get('installprog') and os.path.exists(config['installprog']):
             os.environ['INSTALL'] = config['installprog']
 
+        # Boost path disables boost build
+        if config.has_key('boost_path'):
+            print("Loaded boost path")
+            if config.has_key('skip'):
+                config['skip'].append('boost')
+            else:
+                config['skip'] = ['boost']
+
         # copy known config keys to attributes on the instance
         for name in _known_keys:
             setattr(self, name, config[name])
