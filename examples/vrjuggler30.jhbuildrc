@@ -1,0 +1,45 @@
+# -*- mode: python -*-
+
+# edit this file to match your settings and copy it to ~/.jhbuildrc
+
+# if you have a VR Juggler svn account, uncomment this line
+# repos['vrjuggler.googlecode.com'] = 'https://vrjuggler.googlecode.com/svn/juggler/'
+
+# if you have a Flagpoll svn account, uncomment this line
+# repos['flagpoll.googlecode.com'] = 'https://flagpoll.googlecode.com/svn/'
+
+# what module set should be used.
+# It can be any of the files in the modulesets directory, or even
+# the URL of a module set file on a web server.
+moduleset = 'vrjuggler/vrjuggler30'
+
+# A list of the modules to build.
+modules = ['vrjuggler']
+
+# what directory should the source be checked out to?
+checkoutroot = os.path.expanduser('~/checkout/vrjuggler')
+tarballdir = os.path.join(checkoutroot, 'pkgs')
+
+# the prefix to configure/install modules to (must have write access)
+prefix = os.path.expanduser('~/opt/vrjuggler')
+
+# extra arguments to pass to all autogen.sh scripts
+# it is also possible to set CFLAGS this way, 'CFLAGS="-g -O2"' for example
+
+autogenargs='--disable-static CFLAGS="-O2" --disable-debug'
+
+module_autogenargs['vrjuggler'] = autogenargs + " --with-abi=ELF_x86_64"
+
+# On SMP systems you may use something like this to improve compilation time:
+# be aware that not all modules compile correctly with make -j2
+#makeargs = '-j3'
+
+
+# Tricksy workarounds
+
+# jhbuild no longer automatically looks in /usr/lib/pkgconfig, so we need to
+# tell it to do so
+addpath('PKG_CONFIG_PATH', prefix + '/lib64/pkgconfig')
+addpath('PKG_CONFIG_PATH', prefix + '/share/pkgconfig')
+addpath('PKG_CONFIG_PATH', '/usr/lib64/pkgconfig')
+addpath('PKG_CONFIG_PATH', '/usr/share/pkgconfig')
