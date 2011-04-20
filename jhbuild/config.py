@@ -57,8 +57,9 @@ _known_keys = [ 'moduleset', 'modules', 'skip', 'tags', 'prefix',
                 'jhbuildbot_slaves_dir', 'jhbuildbot_dir',
                 'jhbuildbot_mastercfg', 'use_local_modulesets',
                 'ignore_suggests', 'modulesets_dir', 'mirror_policy',
-                'module_mirror_policy', 'dvcs_mirror_dir', 'build_targets', 'sconsargs', 'module_sconsargs',
-                'cmakeargs', 'module_cmakeargs' ]
+                'module_mirror_policy', 'dvcs_mirror_dir', 'build_targets',
+                'sconsargs', 'module_sconsargs', 'cmakeargs', 'module_cmakeargs',
+                'boost_path' ]
 
 env_prepends = {}
 def prependpath(envvar, path):
@@ -373,6 +374,13 @@ class Config:
         # XCURSOR_PATH
         xcursordir = os.path.join(self.prefix, 'share', 'icons')
         addpath('XCURSOR_PATH', xcursordir)
+
+        # BOOST_PATH
+        boost_path = self.prefix
+        if self.boost_path is not None:
+            boost_path = self.boost_path
+        os.environ['BOOST_PATH'] = boost_path
+
 
         # ACLOCAL_FLAGS
         aclocaldir = os.path.join(self.prefix, 'share', 'aclocal')

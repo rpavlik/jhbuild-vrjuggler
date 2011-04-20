@@ -173,3 +173,6 @@ ignore_suggests = False
 
 # local directory for DVCS mirror (git only atm)
 dvcs_mirror_dir = None
+
+# location of Boost's root directory, defaulting to the prefix
+boost_path = None
