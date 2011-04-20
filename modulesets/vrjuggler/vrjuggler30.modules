@@ -9,7 +9,7 @@
 	<repository type="tarball" name="boost.sf.net" href="http://iweb.dl.sourceforge.net/project/boost/" />
 
 	<scons id="cppdom"
-		sconsargs="prefix=%(prefix)s var_type=optimized build_test=no">
+		sconsargs="prefix=%(prefix)s BoostBaseDir=%(prefix)s var_type=optimized build_test=no">
 
 		<branch module="1.0.3/cppdom-1.0.3.tar.gz"
 			version="1.0.3"
