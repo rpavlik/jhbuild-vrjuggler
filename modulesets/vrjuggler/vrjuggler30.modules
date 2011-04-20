@@ -26,7 +26,7 @@
 	</distutils>
 
 	<autotools id="vrjuggler"
-		autogen-template="%(srcdir)s/acclean.sh &amp;&amp; %(srcdir)s/configure.pl --prefix %(prefix)s --with-boost=%(prefix)s %(autogenargs)s"
+		autogen-template="%(srcdir)s/acclean.sh &amp;&amp; %(srcdir)s/configure.pl --prefix %(prefix)s --with-boost=$BOOST_PATH --with-boost-includes=$BOOST_PATH/include %(autogenargs)s"
 		supports-non-srcdir-builds="yes"
 		makeargs="opt-dso BUILD_PROF_C=N BUILD_PROF_CXX=N"
 		makeinstallargs="install-optim BUILD_PROF_C=N BUILD_PROF_CXX=N"
