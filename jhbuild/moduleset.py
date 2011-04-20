@@ -312,7 +312,7 @@ def load(config, uri=None):
             elif os.path.isfile(os.path.join(config.modulesets_dir, uri)):
                 uri = os.path.join(config.modulesets_dir, uri)
         elif not urlparse.urlparse(uri)[0]:
-            uri = 'http://git.gnome.org/browse/jhbuild/plain/modulesets' \
+            uri = 'https://github.com/rpavlik/vrjuggler-jhbuild/raw/master/modulesets' \
                   '/%s.modules' % uri
         try:
             ms.modules.update(_parse_module_set(config, uri).modules)
