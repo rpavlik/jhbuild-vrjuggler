@@ -359,6 +359,12 @@ class Config:
         addpath('PKG_CONFIG_PATH', pkgconfigdatadir)
         addpath('PKG_CONFIG_PATH', pkgconfigdir)
 
+        # FLAGPOLL_PATH
+        flagpolldatadir = os.path.join(self.prefix, 'share', 'flagpoll')
+        flagpolldir = os.path.join(libdir, 'flagpoll')
+        prependpath('FLAGPOLL_PATH', flagpolldatadir)
+        prependpath('FLAGPOLL_PATH', flagpolldir)
+
         # GI_TYPELIB_PATH
         if not 'GI_TYPELIB_PATH' in os.environ:
             if self.use_lib64:
