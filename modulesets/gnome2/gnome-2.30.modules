@@ -19,12 +19,8 @@
   <repository type="cvs" name="refdbg.sf.net"
       cvsroot=":pserver:anonymous@refdbg.cvs.sourceforge.net:/cvsroot/refdbg"
       password=""/>
-  <repository type="bzr" name="lp-inkscape"
-      href="lp:inkscape"/>
-  <repository type="tarball" name="sourceforge.net/inkscape"
-      href="http://voxel.dl.sourceforge.net/project/inkscape/inkscape/"/>
-  <repository type="tarball" name="sourceforge.net"
-    href="http://prdownloads.sourceforge.net/sourceforge/"/>
+  <repository type="svn" name="inkscape.sf.net"
+      href="https://inkscape.svn.sourceforge.net/svnroot/inkscape/"/>
   <repository type="svn" name="osiris.chipx86.com"
       href="http://osiris.chipx86.com/svn/osiris-misc/"/>
   <repository type="svn" name="svn.debian.org"
@@ -50,7 +46,7 @@
   <repository type="git" name="git.freedesktop.org"
       href="git://anongit.freedesktop.org/git/"/>
   <repository type="bzr" name="launchpad.net"
-      href="http://bazaar.launchpad.net/"/>
+      href="http://code.launchpad.net/"/>
   <repository type="bzr" name="bzr.burtonini.com"
       href="http://burtonini.com/bzr/"/>
   <repository type="svn" name="elisa.code.fluendo.com"
@@ -267,7 +263,6 @@
       <dep package="dbus-glib"/>
       <dep package="hal"/>
       <dep package="pygtk"/>
-      <dep package="libpng"/>
     </suggests>    
   </autotools>
 
@@ -941,17 +936,11 @@
     </dependencies>
   </autotools>
 
-  <autotools id="inkscape"
-  	autogenargs="--enable-lcms --enable-poppler-cairo">
-    <branch repo="sourceforge.net" module="inkscape/inkscape/0.47/inkscape-0.47.tar.gz" version="0.47" />
+  <autotools id="inkscape">
+    <branch repo="inkscape.sf.net" module="inkscape/trunk" checkoutdir="inkscape"/>
     <dependencies>
       <dep package="gtkmm"/>
       <dep package="libxslt"/>
-      <dep package="boehmgc"/>
-      <dep package="cairo"/>
-      <dep package="poppler"/>
-      <dep package="poppler-data"/>
-      <dep package="littlecms"/>
     </dependencies>
   </autotools>
 

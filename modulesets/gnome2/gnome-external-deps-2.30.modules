@@ -29,12 +29,6 @@
     href="http://samba.org/samba/ftp/"/>
 <repository type="tarball" name="webkitgtk.org"
     href="http://webkitgtk.org/"/>
-<repository type="tarball" name="sources.redhat.com"
-    href="ftp://sources.redhat.com/pub/"/>
-<repository type="tarball" name="Hans_Boehm"
-    href="http://www.hpl.hp.com/personal/Hans_Boehm/gc/"/>
-<repository type="tarball" name="littlecms.com"
-    href="http://www.littlecms.com/"/>
 
   <!-- explicit disabling of qt3 and qt4 can be removed once avahi
        correctly detects what is available. -->
@@ -67,7 +61,7 @@
 
   <autotools id="cairomm">
     <branch module="releases/cairomm-1.6.2.tar.gz" version="1.6.2"
-            repo="cairo.org"
+            repo="cairo.org" 
             hash="sha256:068edc1743d92ff1d102141ba7597ba02a47379f9cb97799b0c3310848b56eff"
             md5sum="eac5d159e4cba98e32ea174483dee24e" size="668258">
     </branch>
@@ -392,13 +386,13 @@
 
   <autotools id="pixman" autogenargs="--disable-gtk">
     <branch module="releases/pixman-0.14.0.tar.gz" version="0.14.0"
-            repo="cairo.org"
+            repo="cairo.org" 
             hash="sha256:f0c28f4d512b6c199838dc558746e751763d3e298785af098554a8dcafc53bb4"
             md5sum="da330524bbd975271974378b1c5e7b5d" size="468269">
     </branch>
   </autotools>
 
-  <tarball id="poppler" version="0.12.0" autogenargs="--enable-xpdf-headers">
+  <tarball id="poppler" version="0.12.0">
     <source href="http://poppler.freedesktop.org/poppler-0.12.0.tar.gz"
             hash="sha256:a95d4a61b1220f60bc40a921766f02d6d18e8276b70291723d6cf77a9c7369ae"
             md5sum="399b25d9d71ad22bc9a2a9281769c49c" size="1595424"/>
@@ -416,7 +410,7 @@
 
   <autotools id="pycairo">
     <branch module="releases/pycairo-1.8.2.tar.gz" version="1.8.2"
-            repo="cairo.org"
+            repo="cairo.org" 
             hash="sha256:77a8cbe388fd66825056744f2fc5c58b3afc247748bc2c777751cc0c2eb30a2f"
             md5sum="bbfc0c2fef08dfb0c5b8baa5f0b67a87" size="519064">
     </branch>
@@ -631,7 +625,7 @@
 
   <autotools id="libgdiplus">
     <branch module="libgdiplus/libgdiplus-1.2.6.tar.bz2" version="1.2.6"
-            repo="mono.net"
+            repo="mono.net" 
             hash="sha256:5eb1a7a8d3b75c751eac6075239469059238082aee1963bc6a172b3073046cfe"
             md5sum="dfe8e43a49b4aa40ab5b7cf53bf83675" size="2897855">
     </branch>
@@ -644,7 +638,7 @@
 
   <autotools id="mono">
     <branch module="mono/mono-2.4.2.2.tar.bz2" version="2.4.2.2"
-            repo="mono.net"
+            repo="mono.net" 
             hash="sha256:e3b965c56a669c3012856dcc17b7400d28505dd4bb8a3c6eb3e653bb41b5e6ba"
             md5sum="54aac9b914c5a4dc81c2bfd058df1c93" size="24813167"/>
     <dependencies>
@@ -685,7 +679,7 @@
       <dep package="intltool"/>
     </dependencies>
   </tarball>
-
+  
   <tarball id="PolicyKit-gnome" version="0.9.2">
     <source href="http://hal.freedesktop.org/releases/PolicyKit-gnome-0.9.2.tar.bz2"
             hash="sha256:ecf4ce303a90a4580c54ee7b932ffaf01b7f115f40b17d75634c5bbfba085c8a"
@@ -826,7 +820,7 @@
   </tarball>
 
   <tarball id="libical" version="0.43">
-    <source href="ftp://ftp.port80.se/gentoo/distfiles/libical-0.43.tar.gz"
+    <source href="http://downloads.sourceforge.net/freeassociation/libical-0.43.tar.gz"
             hash="sha256:099f3e29a864de324477983eefaf17a4ef3b4ec8f075f95384db1ac67b6663a6"
             md5sum="5f0a1feb60894d0be537aefea5647474" size="1145724"/>
     <dependencies>
@@ -940,7 +934,7 @@
       <dep package="dbus"/>
     </dependencies>
   </tarball>
-
+    
   <tarball id="libgda" version="4.0.7" autogenargs="--with-java=no">
     <source href="http://download.gnome.org/sources/libgda/4.0/libgda-4.0.7.tar.bz2"
             hash="sha256:dffffc6524ecac05a4c891a9c3fca99abce9fb1bc368933a542d6afaf3ba8240"
@@ -1037,7 +1031,6 @@
             md5sum="7ea9be9a347b5c408fd3c3907803de9b" size="763182"/>
     <dependencies>
       <dep package="glib"/>
-      <dep package="libffi"/>
     </dependencies>
   </tarball>
 
@@ -1090,30 +1083,5 @@ href="http://ftp.gnome.org/pub/GNOME/sources/vala/0.8/vala-0.8.1.tar.bz2"
       <dep package="glib"/>
     </dependencies>
   </tarball>
-
-
-  <autotools id="libffi">
-    <branch repo="sources.redhat.com"
-            module="libffi/libffi-3.0.9.tar.gz" version="3.0.9"
-            md5sum="1f300a7a7f975d4046f51c3022fa5ff1"/>s
-  </autotools>
-  <autotools id="boehmgc">
-    <branch repo="Hans_Boehm"
-    		version="7.1"
-            module="gc_source/gc-7.1.tar.gz"/>
-  </autotools>
-  
-  <autotools id="littlecms">
-    <branch repo="sourceforge.net"
-    		version="1.19"
-            module="lcms/lcms-1.19.tar.gz"/>
-  </autotools>
-  <autotools id="libpng"
-  			autogen-sh="configure">
-    <branch repo="sourceforge.net"
-    		version="1.2.43"
-            module="libpng/libpng-1.2.43.tar.gz"/>
-  </autotools>
-
 
 </moduleset>
